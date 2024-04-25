@@ -1,0 +1,55 @@
+{
+  "name": "frankfurt-tram-lines",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "run-s -s lint:*",
+    "lint:js": "eslint --format unix src/",
+    "lint:rs": "cargo clippy",
+    "format": "run-s -s format:*",
+    "format:rs": "cargo fmt",
+    "format:js": "prettier --write src/ types/ *.js *.cjs *.json",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist/",
+    "build": "run-s -sl clean build:*",
+    "build:rs": "cargo build",
+    "build:js": "node esbuild.cjs",
+    "build:types": "tsc"
+  },
+  "dependencies": {
+    "@turf/bbox": "^6.5.0",
+    "@turf/centroid": "^6.5.0",
+    "pmtiles": "^3.0.5"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@mantine/core": "^7.8.0",
+    "@mantine/hooks": "^7.8.0",
+    "@types/geojson": "^7946.0.14",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "esbuild-node-externals": "^1.13.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "maplibre-gl": "^4.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.7",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.0"
+  }
+}

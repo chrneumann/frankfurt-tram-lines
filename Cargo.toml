@@ -1,0 +1,13 @@
+[package]
+name = "frankfurt-tram-lines"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.82"
+clap = { version = "4.5.4", features = ["derive"] }
+derivative = "2.2.0"
+geojson = "0.24.1"
+osmpbfreader = "0.16.1"
+regex = "1.10.4"
+serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "1.0.115"
